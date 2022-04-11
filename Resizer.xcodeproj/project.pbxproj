@@ -243,8 +243,6 @@
 				Base,
 			);
 			mainGroup = 2BAC467427C7A4BD009A702E;
-			packageReferences = (
-			);
 			productRefGroup = 2BAC467E27C7A4BD009A702E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
