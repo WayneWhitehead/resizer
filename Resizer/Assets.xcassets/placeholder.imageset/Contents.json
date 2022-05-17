@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "photo-1.png",
+      "filename" : "iosImage@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "photo.png",
+      "filename" : "iosImage@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "photo-2.png",
+      "filename" : "iosImage@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

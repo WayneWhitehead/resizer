@@ -18,6 +18,7 @@
 		2BAC46D527C84D7B009A702E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC46D427C84D7B009A702E /* Extentions.swift */; };
 		2BAC46DA27C85747009A702E /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC46D927C85747009A702E /* ImageModel.swift */; };
 		2BC390172833B5A200649A7A /* ImageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC390162833B5A200649A7A /* ImageManipulation.swift */; };
+		2BC3901A2833CD3900649A7A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC390192833CD3900649A7A /* Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2BAC46D427C84D7B009A702E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		2BAC46D927C85747009A702E /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		2BC390162833B5A200649A7A /* ImageManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulation.swift; sourceTree = "<group>"; };
+		2BC390192833CD3900649A7A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		2B40D3A727C8E77100B9A7F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2BC390192833CD3900649A7A /* Device.swift */,
 				2BAC46D927C85747009A702E /* ImageModel.swift */,
 				2B40D3AC27C9032400B9A7F2 /* SaveDirectory.swift */,
 			);
@@ -292,6 +295,7 @@
 				2BAC46D527C84D7B009A702E /* Extentions.swift in Sources */,
 				2BAC468327C7A4BD009A702E /* ConvertImageView.swift in Sources */,
 				2BC390172833B5A200649A7A /* ImageManipulation.swift in Sources */,
+				2BC3901A2833CD3900649A7A /* Device.swift in Sources */,
 				2BAC468127C7A4BD009A702E /* ResizerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
