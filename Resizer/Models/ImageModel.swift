@@ -126,7 +126,6 @@ class ImageModel {
         return macOsImages
     }
     
-    
     func getiOSImageSizes(imagePath: URL) -> [ImageModel] {
         var iOSImages = [ImageModel]()
         let image = NSImage(contentsOf: imagePath)!
@@ -169,20 +168,5 @@ class ImageModel {
         }
         jsonString += "{\"filename\":\"LaunchIcon_1024x1024.png\",\"idiom\":\"ios-marketing\",\"scale\":\"1x\",\"size\":\"1024x1024\"}],\"info\":{\"author\":\"xcode\",\"version\":1}}"
         return jsonString
-    }
-}
-
-enum Device: String, CaseIterable, Identifiable {
-    case iPhone = "iPhone"
-    case iPad = "iPad"
-    case macOS = "MacOS"
-    var id: String { self.rawValue }
-    
-    func getName(device: Device)-> String {
-        switch device {
-        case .iPhone: return Device.iPhone.id
-        case .iPad: return Device.iPad.id
-        case .macOS: return Device.macOS.id
-        }
     }
 }
