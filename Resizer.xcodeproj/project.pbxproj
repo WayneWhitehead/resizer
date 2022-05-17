@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B40D3A627C8E6AC00B9A7F2 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B40D3A527C8E6AC00B9A7F2 /* Contents.json */; };
 		2B40D3AD27C9032400B9A7F2 /* SaveDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B40D3AC27C9032400B9A7F2 /* SaveDirectory.swift */; };
 		2BAC468127C7A4BD009A702E /* ResizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC468027C7A4BD009A702E /* ResizerApp.swift */; };
-		2BAC468327C7A4BD009A702E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC468227C7A4BD009A702E /* ContentView.swift */; };
+		2BAC468327C7A4BD009A702E /* ConvertImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC468227C7A4BD009A702E /* ConvertImageView.swift */; };
 		2BAC468527C7A4C1009A702E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC468427C7A4C1009A702E /* Assets.xcassets */; };
 		2BAC468827C7A4C1009A702E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC468727C7A4C1009A702E /* Preview Assets.xcassets */; };
-		2BAC468A27C7A4C1009A702E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC468927C7A4C1009A702E /* Persistence.swift */; };
-		2BAC468D27C7A4C1009A702E /* Resizer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC468B27C7A4C1009A702E /* Resizer.xcdatamodeld */; };
 		2BAC469827C7A4C2009A702E /* ResizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC469727C7A4C2009A702E /* ResizerTests.swift */; };
 		2BAC46A227C7A4C2009A702E /* ResizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC46A127C7A4C2009A702E /* ResizerUITests.swift */; };
 		2BAC46A427C7A4C2009A702E /* ResizerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC46A327C7A4C2009A702E /* ResizerUITestsLaunchTests.swift */; };
 		2BAC46D527C84D7B009A702E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC46D427C84D7B009A702E /* Extentions.swift */; };
 		2BAC46DA27C85747009A702E /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC46D927C85747009A702E /* ImageModel.swift */; };
+		2BC390172833B5A200649A7A /* ImageManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC390162833B5A200649A7A /* ImageManipulation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,15 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B40D3A527C8E6AC00B9A7F2 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		2B40D3AC27C9032400B9A7F2 /* SaveDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDirectory.swift; sourceTree = "<group>"; };
 		2BAC467D27C7A4BD009A702E /* Resizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC468027C7A4BD009A702E /* ResizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizerApp.swift; sourceTree = "<group>"; };
-		2BAC468227C7A4BD009A702E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2BAC468227C7A4BD009A702E /* ConvertImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImageView.swift; sourceTree = "<group>"; };
 		2BAC468427C7A4C1009A702E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BAC468727C7A4C1009A702E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2BAC468927C7A4C1009A702E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		2BAC468C27C7A4C1009A702E /* Resizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Resizer.xcdatamodel; sourceTree = "<group>"; };
 		2BAC468E27C7A4C1009A702E /* Resizer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Resizer.entitlements; sourceTree = "<group>"; };
 		2BAC469327C7A4C2009A702E /* ResizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAC469727C7A4C2009A702E /* ResizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizerTests.swift; sourceTree = "<group>"; };
@@ -57,6 +52,7 @@
 		2BAC46A327C7A4C2009A702E /* ResizerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2BAC46D427C84D7B009A702E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		2BAC46D927C85747009A702E /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		2BC390162833B5A200649A7A /* ImageManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManipulation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,16 +112,14 @@
 		2BAC467F27C7A4BD009A702E /* Resizer */ = {
 			isa = PBXGroup;
 			children = (
-				2B40D3A727C8E77100B9A7F2 /* Models */,
-				2B40D3A527C8E6AC00B9A7F2 /* Contents.json */,
-				2BAC468027C7A4BD009A702E /* ResizerApp.swift */,
-				2BAC468227C7A4BD009A702E /* ContentView.swift */,
 				2BAC468427C7A4C1009A702E /* Assets.xcassets */,
-				2BAC468927C7A4C1009A702E /* Persistence.swift */,
+				2B40D3A727C8E77100B9A7F2 /* Models */,
+				2BC390182833CAAA00649A7A /* Views */,
+				2BAC468027C7A4BD009A702E /* ResizerApp.swift */,
 				2BAC468E27C7A4C1009A702E /* Resizer.entitlements */,
-				2BAC468B27C7A4C1009A702E /* Resizer.xcdatamodeld */,
 				2BAC468627C7A4C1009A702E /* Preview Content */,
 				2BAC46D427C84D7B009A702E /* Extentions.swift */,
+				2BC390162833B5A200649A7A /* ImageManipulation.swift */,
 			);
 			path = Resizer;
 			sourceTree = "<group>";
@@ -153,6 +147,14 @@
 				2BAC46A327C7A4C2009A702E /* ResizerUITestsLaunchTests.swift */,
 			);
 			path = ResizerUITests;
+			sourceTree = "<group>";
+		};
+		2BC390182833CAAA00649A7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC468227C7A4BD009A702E /* ConvertImageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +263,6 @@
 			files = (
 				2BAC468827C7A4C1009A702E /* Preview Assets.xcassets in Resources */,
 				2BAC468527C7A4C1009A702E /* Assets.xcassets in Resources */,
-				2B40D3A627C8E6AC00B9A7F2 /* Contents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BAC468D27C7A4C1009A702E /* Resizer.xcdatamodeld in Sources */,
 				2BAC46DA27C85747009A702E /* ImageModel.swift in Sources */,
 				2B40D3AD27C9032400B9A7F2 /* SaveDirectory.swift in Sources */,
-				2BAC468A27C7A4C1009A702E /* Persistence.swift in Sources */,
 				2BAC46D527C84D7B009A702E /* Extentions.swift in Sources */,
-				2BAC468327C7A4BD009A702E /* ContentView.swift in Sources */,
+				2BAC468327C7A4BD009A702E /* ConvertImageView.swift in Sources */,
+				2BC390172833B5A200649A7A /* ImageManipulation.swift in Sources */,
 				2BAC468127C7A4BD009A702E /* ResizerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,21 +449,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Resizer/Resizer.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Resizer/Preview Content\"";
+				DEVELOPMENT_TEAM = 85F2HKDZHH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = za.co.hidesign.Resizer;
+				PRODUCT_BUNDLE_IDENTIFIER = za.co.hidesign.resizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -475,21 +478,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Resizer/Resizer.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Resizer/Preview Content\"";
+				DEVELOPMENT_TEAM = 85F2HKDZHH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = za.co.hidesign.Resizer;
+				PRODUCT_BUNDLE_IDENTIFIER = za.co.hidesign.resizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -604,19 +610,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2BAC468B27C7A4C1009A702E /* Resizer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2BAC468C27C7A4C1009A702E /* Resizer.xcdatamodel */,
-			);
-			currentVersion = 2BAC468C27C7A4C1009A702E /* Resizer.xcdatamodel */;
-			path = Resizer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 2BAC467527C7A4BD009A702E /* Project object */;
 }

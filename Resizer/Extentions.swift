@@ -9,6 +9,19 @@ import Foundation
 import SwiftUI
 import AppKit
 
+extension NSAlert {
+    func showCloseAlert(text: String, completion: (Bool) -> Void) {
+        let alert = NSAlert()
+        alert.messageText = "Warning!"
+        alert.informativeText = text
+        alert.alertStyle = NSAlert.Style.warning
+        alert.icon = NSImage(systemSymbolName: "exclamationmark.triangle.fill", accessibilityDescription: nil)
+        alert.addButton(withTitle: "Continue")
+        alert.addButton(withTitle: "Cancel")
+        completion(alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn)
+    }
+}
+
 extension FileManager{
     func downloadsDirectory() -> URL {
         return FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first!
@@ -38,6 +51,14 @@ extension FileManager{
             }
         }
         return selectedPath!
+    }
+    
+    func createFolder(path: URL) {
+        do {
+            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }
 
