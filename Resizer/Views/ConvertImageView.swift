@@ -11,7 +11,7 @@ import Foundation
 import AppKit
 
 struct ConvertImageView: View {
-    @State var image = Image(nsImage: #imageLiteral(resourceName: "placeholder"))
+    @State var image = #imageLiteral(resourceName: "placeholder")
     @State var imageLabel = "Choose Photo"
     @State var imagePath = URL(string: "")
     @State var imageName = ""
@@ -21,18 +21,33 @@ struct ConvertImageView: View {
     @State var useMacOS = true
     @State var useiOS = true
     
-    @State var displayConvert = false
-    @State var displayNameInput = false
+    @State private var dragOver = false
+    @State private var displayConvert = false
+    @State private var displayNameInput = false
     @State private var selectedDirectory: SaveDirectory = .Downloads
     
     @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
         VStack(alignment: .center) {
-            image
-                .resizable()
+            Image(nsImage: image).resizable()
+                .onDrop(of: ["public.file-url"], isTargeted: $dragOver) { providers -> Bool in
+                    providers.first?.loadDataRepresentation(forTypeIdentifier: "public.file-url", completionHandler: { (data, error) in
+                        if let data = data, let path = NSString(data: data, encoding: 4), let url = URL(string: path as String) {
+                            let image = NSImage(contentsOf: url)
+                            DispatchQueue.main.async {
+                                self.image = image!
+                                displayConvert = true
+                                imagePath = url
+                            }
+                        }
+                    })
+                    return true
+                }
                 .scaledToFit()
                 .frame(width: 300, height: 300, alignment: .center)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 20, height: 20)))
+                .help("Click to open file picker or drop image here")
                 .onTapGesture {
                     uploadFile()
                 }
@@ -50,7 +65,7 @@ struct ConvertImageView: View {
                 Text("Documents").tag(SaveDirectory.Documents)
                 Text("Downloads").tag(SaveDirectory.Downloads)
             }
-            .frame(width: 300.0)
+            .frame(width: 250.0)
             
             HStack(alignment: .center) {
                 Toggle("iPhone Icons", isOn: $useIphone)
@@ -75,7 +90,8 @@ struct ConvertImageView: View {
         }
         .frame(width: 400.0)
         .padding(20)
-        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 1.0, saturation: 0.0, brightness: 0.136)/*@END_MENU_TOKEN@*/)
+        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(hue: 1.0, saturation: 0.0, brightness: 0.084)/*@END_MENU_TOKEN@*/)
+        
     }
     
     func uploadFile(){
@@ -89,7 +105,7 @@ struct ConvertImageView: View {
         openPanel.begin { (result) -> Void in
             if result.rawValue == NSApplication.ModalResponse.OK.rawValue {
                 let selectedPath = openPanel.urls.first
-                image = Image(nsImage: NSImage(contentsOf: selectedPath!)!)
+                image = NSImage(contentsOf: selectedPath!)!
                 self.imageLabel = selectedPath!.absoluteString
                 imagePath = selectedPath!
                 displayConvert = true
