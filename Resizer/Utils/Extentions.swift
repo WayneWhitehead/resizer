@@ -63,6 +63,14 @@ extension FileManager{
 }
 
 extension NSImage {
+    var pixelSize: NSSize?{
+        if let rep = self.representations.first{
+            let size = NSSize(width: rep.pixelsWide, height: rep.pixelsHigh)
+            return size
+        }
+        return nil
+    }
+
     func resize(image: NSImage, w: Double, h: Double) -> NSImage {
         let destSize = NSMakeSize(CGFloat(w), CGFloat(h))
         let newImage = NSImage(size: destSize)

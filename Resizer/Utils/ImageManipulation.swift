@@ -69,15 +69,17 @@ class ImageManipulation {
     
     func checkImageValidity(imagePath: URL){
         let image = NSImage(contentsOf: imagePath)!
-        if image.size.width < 1024 || image.size.height < 1024 {
-            print(image.size.width)
-            print(image.size.height)
-            NSAlert.init().showCloseAlert(text: "Image is not 1024x1024") { answer in
-                continueWithImage = answer
-            }
+        let height = image.pixelSize!.height
+        let width = image.pixelSize!.width
+        var message = ""
+        if width < 1024 || height < 1024 {
+            message += "Image is not 1024x1024\n"
         }
-        if image.size.height/image.size.width != 1 {
-            NSAlert.init().showCloseAlert(text: "Image does not have a square aspect ratio") { answer in
+        if height/width != 1 {
+            message += "Image is not square\n"
+        }
+        if !message.isEmpty {
+            NSAlert.init().showCloseAlert(text: message) { answer in
                 continueWithImage = answer
             }
         }
