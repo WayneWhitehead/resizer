@@ -86,11 +86,19 @@
 			isa = PBXGroup;
 			children = (
 				2BC390192833CD3900649A7A /* Device.swift */,
-				2BC390162833B5A200649A7A /* ImageManipulation.swift */,
 				2BAC46D927C85747009A702E /* ImageModel.swift */,
 				2B40D3AC27C9032400B9A7F2 /* SaveDirectory.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2B42295D2834F701009BE971 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BAC46D427C84D7B009A702E /* Extentions.swift */,
+				2BC390162833B5A200649A7A /* ImageManipulation.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2BAC467427C7A4BD009A702E = {
@@ -118,8 +126,8 @@
 			children = (
 				2BAC468427C7A4C1009A702E /* Assets.xcassets */,
 				2BAC468027C7A4BD009A702E /* ResizerApp.swift */,
-				2BAC46D427C84D7B009A702E /* Extentions.swift */,
 				2B40D3A727C8E77100B9A7F2 /* Models */,
+				2B42295D2834F701009BE971 /* Utils */,
 				2BC390182833CAAA00649A7A /* Views */,
 				2BAC468E27C7A4C1009A702E /* Resizer.entitlements */,
 			);
