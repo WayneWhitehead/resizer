@@ -20,6 +20,8 @@ struct ConvertImageView: View {
     @State var useIpad = true
     @State var useMacOS = true
     @State var useiOS = true
+    @State var useAndroidImage = true
+    @State var useAndroidIcon = true
     
     @State private var dragOver = false
     @State private var displayConvert = false
@@ -73,6 +75,10 @@ struct ConvertImageView: View {
                 Toggle("MacOs Icons", isOn: $useMacOS)
                 Toggle("iOS Image", isOn: $useiOS)
             }
+            HStack(alignment: .center) {
+                Toggle("Android Image", isOn: $useAndroidImage)
+                Toggle("Android Icon", isOn: $useAndroidIcon)
+            }
                 
             if useiOS && displayConvert {
                 HStack(spacing: 0) {
@@ -84,7 +90,7 @@ struct ConvertImageView: View {
             
             if displayConvert {
                 Button("Convert") {
-                    ImageManipulation.init().convertImage(imagePath: self.imagePath!, convert: displayConvert, useIphone: useIphone, useIpad: useIpad, useMacOS: useMacOS, useiOS: useiOS, imageName: imageName, directory: selectedDirectory.url(directory: selectedDirectory))
+                    ImageManipulation.init().convertImage(imagePath: self.imagePath!, convert: displayConvert, useIphone: useIphone, useIpad: useIpad, useMacOS: useMacOS, useiOS: useiOS, useAndroidImage: useAndroidImage, useAndroidIcon: useAndroidIcon, imageName: imageName, directory: selectedDirectory.url(directory: selectedDirectory))
                 }
             }
         }

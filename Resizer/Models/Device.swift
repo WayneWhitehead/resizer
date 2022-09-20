@@ -11,6 +11,7 @@ enum Device: String, CaseIterable, Identifiable {
     case iPhone = "iPhone"
     case iPad = "iPad"
     case macOS = "MacOS"
+    case Android = "Android"
     var id: String { self.rawValue }
     
     func getName(device: Device)-> String {
@@ -18,6 +19,7 @@ enum Device: String, CaseIterable, Identifiable {
         case .iPhone: return Device.iPhone.id
         case .iPad: return Device.iPad.id
         case .macOS: return Device.macOS.id
+        case .Android: return Device.Android.id
         }
     }
 }

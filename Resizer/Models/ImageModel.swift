@@ -143,6 +143,61 @@ class ImageModel {
         return iOSImages
     }
     
+    func getAndroidImageSizes(imagePath: URL) -> [ImageModel] {
+        var androidImages = [ImageModel]()
+        let image = NSImage(contentsOf: imagePath)!
+        let width = Double(image.representations[0].pixelsWide/2)
+        let height = Double(image.representations[0].pixelsHigh/2)
+        let ratio =  Double(height/width)
+        androidImages.append(ImageModel(
+            name: "xxxhdpi",
+            image: NSImage().resize(image: image, w: 1440/2, h: (1440*ratio)/2)
+        ))
+        androidImages.append(ImageModel(
+            name: "xxhdpi",
+            image: NSImage().resize(image: image, w: 1080/2, h: (1080*ratio)/2)
+        ))
+        androidImages.append(ImageModel(
+            name: "xhdpi",
+            image: NSImage().resize(image: image, w: 768/2, h: (768*ratio)/2)
+        ))
+        androidImages.append(ImageModel(
+            name: "hdpi",
+            image: NSImage().resize(image: image, w: 480/2, h: (480*ratio)/2)
+        ))
+        androidImages.append(ImageModel(
+            name: "mdpi",
+            image: NSImage().resize(image: image, w: 320/2, h: (320*ratio)/2)
+        ))
+        return androidImages
+    }
+    
+    func getAndroidIconSizes(imagePath: URL) -> [ImageModel] {
+        var androidImages = [ImageModel]()
+        let image = NSImage(contentsOf: imagePath)!
+        androidImages.append(ImageModel(
+            name: "xxxhdpi",
+            image: NSImage().resize(image: image, w: 192, h: 192)
+        ))
+        androidImages.append(ImageModel(
+            name: "xxhdpi",
+            image: NSImage().resize(image: image, w: 144, h: 144)
+        ))
+        androidImages.append(ImageModel(
+            name: "xhdpi",
+            image: NSImage().resize(image: image, w: 96, h: 96)
+        ))
+        androidImages.append(ImageModel(
+            name: "hdpi",
+            image: NSImage().resize(image: image, w: 72, h: 72)
+        ))
+        androidImages.append(ImageModel(
+            name: "mdpi",
+            image: NSImage().resize(image: image, w: 48, h: 48)
+        ))
+        return androidImages
+    }
+    
     func getOtherImageSizes(image: NSImage, imagePath: URL) -> [ImageModel] {
         var otherImages = [ImageModel]()
         otherImages.append(ImageModel(
@@ -164,6 +219,7 @@ class ImageModel {
             case .macOS: jsonString +=
                 "{\"filename\":\"mac-16x16@1x.png\",\"idiom\":\"mac\",\"scale\":\"1x\",\"size\":\"16x16\"},{\"filename\":\"mac-16x16@2x.png\",\"idiom\":\"mac\",\"scale\":\"2x\",\"size\":\"16x16\"},{\"filename\":\"mac-32x32@1x.png\",\"idiom\":\"mac\",\"scale\":\"1x\",\"size\":\"32x32\"},{\"filename\":\"mac-32x32@2x.png\",\"idiom\":\"mac\",\"scale\":\"2x\",\"size\":\"32x32\"},{\"filename\":\"mac-128x128@1x.png\",\"idiom\":\"mac\",\"scale\":\"1x\",\"size\":\"128x128\"},{\"filename\":\"mac-128x128@2x.png\",\"idiom\":\"mac\",\"scale\":\"2x\",\"size\":\"128x128\"},{\"filename\":\"mac-256x256@1x.png\",\"idiom\":\"mac\",\"scale\":\"1x\",\"size\":\"256x256\"},{\"filename\":\"mac-256x256@2x.png\",\"idiom\":\"mac\",\"scale\":\"2x\",\"size\":\"256x256\"},{\"filename\":\"mac-512x512@1x.png\",\"idiom\":\"mac\",\"scale\":\"1x\",\"size\":\"512x512\"},{\"filename\":\"mac-512x512@2x.png\",\"idiom\":\"mac\",\"scale\":\"2x\",\"size\":\"512x512\"},"
                 break
+            default: break
             }
         }
         jsonString += "{\"filename\":\"LaunchIcon_1024x1024.png\",\"idiom\":\"ios-marketing\",\"scale\":\"1x\",\"size\":\"1024x1024\"}],\"info\":{\"author\":\"xcode\",\"version\":1}}"

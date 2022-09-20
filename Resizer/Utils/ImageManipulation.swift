@@ -12,7 +12,7 @@ class ImageManipulation {
     var continueWithImage = true
     init(){}
     
-    func convertImage(imagePath: URL, convert: Bool, useIphone: Bool, useIpad: Bool, useMacOS: Bool, useiOS: Bool, imageName: String, directory: URL) {
+    func convertImage(imagePath: URL, convert: Bool, useIphone: Bool, useIpad: Bool, useMacOS: Bool, useiOS: Bool, useAndroidImage: Bool, useAndroidIcon: Bool, imageName: String, directory: URL) {
         if (convert){
             checkImageValidity(imagePath: imagePath)
             
@@ -21,8 +21,9 @@ class ImageManipulation {
                 if useIphone { devices.append(Device.iPhone) }
                 if useIpad { devices.append(Device.iPad) }
                 if useMacOS { devices.append(Device.macOS) }
+                if useAndroidIcon { devices.append(Device.Android)}
                 
-                if (devices.count > 0) {
+                if (useMacOS || useIphone || useIpad) {
                     let PATH = directory.appendingPathComponent("AppIcon.appiconset/", isDirectory: true)
                     FileManager().createFolder(path: PATH)
                     let jsonString = ImageModel.init().getIconJSON(devices: devices)
@@ -41,10 +42,13 @@ class ImageManipulation {
                         saveImages(path: directory.appendingPathComponent("AppIcon.appiconset/"), images: iPhoneImages)
                     case Device.iPad:
                         let iPadImages = ImageModel.init().getIpadImageSizes(imagePath: imagePath)
-                        saveImages(path: directory.appendingPathComponent("AppIcon.appiconset/"),images: iPadImages)
+                        saveImages(path: directory.appendingPathComponent("AppIcon.appiconset/"), images: iPadImages)
                     case Device.macOS:
                         let macOsImages = ImageModel.init().getMacOSImageSizes(imagePath: imagePath)
-                        saveImages(path: directory.appendingPathComponent("AppIcon.appiconset/"),images: macOsImages)
+                        saveImages(path: directory.appendingPathComponent("AppIcon.appiconset/"), images: macOsImages)
+                    case Device.Android:
+                        let androidImages = ImageModel.init().getAndroidIconSizes(imagePath: imagePath)
+                        saveAndroidIcon(path: directory, images: androidImages)
                     }
                 }
             }
@@ -58,6 +62,34 @@ class ImageManipulation {
                 FileManager().createFolder(path: PATH)
                 saveImages(path: PATH, images: iOSImages)
             }
+            if useAndroidImage {
+                var name = imageName
+                let androidImages = ImageModel.init().getAndroidImageSizes(imagePath: imagePath)
+                if (name == "") {
+                    name = "android"
+                }
+                saveAndroidImage(path: directory, images: androidImages, imageName: name)
+            }
+        }
+    }
+    
+    func saveAndroidImage(path: URL, images: [ImageModel], imageName: String) {
+        images.forEach { item in
+            let location = path.appendingPathComponent("Android/drawable-\(item.name)/", isDirectory: true)
+            FileManager().createFolder(path: location)
+            item.imageFile.pngWrite(to: FileManager().NewPath(path: location, name: imageName + ".png"))
+        }
+    }
+    
+    func saveAndroidIcon(path: URL, images: [ImageModel]) {
+        images.forEach { item in
+            let location = path.appendingPathComponent("Android/mipmap-\(item.name)/", isDirectory: true)
+            FileManager().createFolder(path: location)
+            item.imageFile.pngWrite(to: FileManager().NewPath(path: location, name: "ic_launcher_foreground.png"))
+            item.imageFile.roundCorners(withRadius: CGFloat(item.imageFile.representations[0].pixelsWide/2), image: item.imageFile)
+                        .pngWrite(to: FileManager().NewPath(path: location, name: "ic_launcher_round.png"))
+            item.imageFile.roundCorners(withRadius: CGFloat(item.imageFile.representations[0].pixelsWide/10), image: item.imageFile)
+                        .pngWrite(to: FileManager().NewPath(path: location, name: "ic_launcher.png"))
         }
     }
     
@@ -72,6 +104,7 @@ class ImageManipulation {
         let height = image.pixelSize!.height
         let width = image.pixelSize!.width
         var message = ""
+    
         if width < 1024 || height < 1024 {
             message += "Image is not 1024x1024\n"
         }
